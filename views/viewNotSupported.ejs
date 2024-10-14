@@ -1,0 +1,24 @@
+<%- include("includes/header", { title: "File Viewer" }) %>
+
+<div class="container" style="margin-top: 50px; text-align: center;">
+    <h2>Cannot View <%= fileName %> in the Browser</h2>
+    <p>The file you are trying to view cannot be displayed in the browser. You can:</p>
+
+    <div style="margin-top: 20px;">
+        <!-- Link to download the file -->
+        <a href="<%= request.mainURL %>/DownloadFile/<%= fileName %>" class="btn btn-primary">Download the File</a>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <!-- Link to open the file in Google Docs or Office Online -->
+        <a href="https://docs.google.com/viewer?url=<%= encodeURIComponent(request.mainURL + '/uploads/' + fileName) %>"
+           target="_blank" class="btn btn-secondary">View in Google Docs</a>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="https://view.officeapps.live.com/op/view.aspx?src=<%= encodeURIComponent(request.mainURL + '/uploads/' + fileName) %>"
+           target="_blank" class="btn btn-secondary">View in Office Online</a>
+    </div>
+</div>
+
+<%- include("includes/footer") %>

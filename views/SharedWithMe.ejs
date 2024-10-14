@@ -1,0 +1,27 @@
+<%- include("includes/header", { "title": "Shared with Me" }) %>
+
+<div class="container" style="margin-top: 50px;">
+    <h1>Shared with Me</h1>
+
+    <% if (sharedFiles.length > 0) { %>
+        <% sharedFiles.forEach(function(file) { %>
+            <div class="file-item">
+                <!-- Display the file name -->
+                <h3><%= file.sharedFiles.fileName %></h3>
+
+                <!-- Show when the file was shared -->
+                <p>Shared on: <%= new Date(file.sharedAt).toDateString() %></p>
+
+                <!-- View button for viewing shared file -->
+                <a href="<%= request.mainURL %>/ViewSharedFile/<%= file.fileId %>" class="btn btn-secondary">View</a>
+
+                <!-- Download button for downloading shared file -->
+                <a href="<%= request.mainURL %>/DownloadFile/<%= file.fileId %>" class="btn btn-primary">Download</a>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No files have been shared with you.</p>
+    <% } %>
+</div>
+
+<%- include("includes/footer") %>

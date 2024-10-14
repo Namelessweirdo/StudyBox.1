@@ -1,0 +1,38 @@
+<%- include("includes/header", { "title": "Search Results" }) %>
+
+<div class="container" style="margin-top: 50px;">
+    <h1>Search Results</h1>
+
+    <!-- Display error message if there is one -->
+    <% if (error) { %>
+        <div class="alert alert-danger text-center">
+            <%= error %>
+        </div>
+    <% } %>
+
+    <% if (files.length > 0) { %>
+        <% files.forEach(function(file) { %>
+            <div class="file-item">
+                <h3><%= file.fileName %></h3>
+
+                <!-- Date display using months array -->
+                <p>
+                    Uploaded on: <%= new Date(file.uploadDate).getDate() + " " + months[new Date(file.uploadDate).getMonth()] + ", " + new Date(file.uploadDate).getFullYear() + " " + new Date(file.uploadDate).getHours() + ":" + new Date(file.uploadDate).getMinutes() %>
+                </p>
+
+                <!-- File size display using formatBytes function -->
+                <p>
+                    Size: <%= formatBytes(file.fileSize) %>
+                </p>
+
+                <!-- Optionally add view and download buttons -->
+                <a href="<%= request.mainURL %>/ViewFile/<%= file._id %>" class="btn btn-secondary">View</a>
+                <a href="<%= request.mainURL %>/DownloadFile/<%= file._id %>" class="btn btn-primary">Download</a>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No results found.</p>
+    <% } %>
+</div>
+
+<%- include("includes/footer") %>

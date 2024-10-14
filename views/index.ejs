@@ -1,0 +1,38 @@
+<%- include ("includes/header") %>
+
+<div id="homeApp" style="margin-bottom: 80px;">
+    <div class="container" id="features">
+        <div class="row">
+            <div class="col-md-12 text-center" style="padding-top: 170px;">
+                <h1>StudyBox </h1>
+                <p>Learning Made Easier For You</p>
+
+                <a v-bind:href="mainURL + '/MyUploads'">Get Started</a>
+            </div>
+
+            <div class="container">
+                <!-- Notifications Button -->
+                <a href="/Notifications" class="btn btn-info" style="position: absolute; top: 60px; left: 10px;">
+                    Notifications (<%= unreadNotificationsCount %>)
+                </a>
+            </div>
+
+
+        </div>
+
+
+
+        <script>
+            const homeApp = Vue.createApp({
+                data() {
+                    return {
+                        mainURL: baseUrl,
+                    }
+                }
+            });
+            homeApp.mount("#homeApp");
+        </script>
+
+
+
+        <%- include ("includes/footer") %>

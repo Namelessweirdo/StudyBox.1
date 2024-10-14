@@ -1,0 +1,22 @@
+<%- include ("includes/header", { "title": "All Uploads" }) %>
+
+<div class="container" style="margin-top: 50px;">
+    <h2>All Files Uploaded</h2>
+    <div class="row">
+        <% uploads.forEach(function (file) { %>
+            <div class="col-md-4" style="margin-bottom: 30px;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5><%= file.fileName %></h5>
+                        <p>Size: <%= file.fileSize %> bytes</p>
+                        <p>Uploaded on: <%= new Date(file.uploadDate).toLocaleString() %></p>
+                        <p>Description: <%= file.description %></p>
+                        <a href="<%= request.mainURL %>/DownloadFile/<%= file._id %>" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<%- include ("includes/footer") %>
