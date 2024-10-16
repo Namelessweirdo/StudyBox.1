@@ -47,7 +47,7 @@ var httpObj = require("http");
 var http = httpObj.createServer(app);
 
 // to encrypt/decrypt passwords
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 
 // to start the session
 var session = require("express-session");
