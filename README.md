@@ -55,7 +55,7 @@ Access the Application: Open your browser and go to http://localhost:3000 to sta
 - Cloud Storage: Move file storage to a cloud-based solution like AWS S3 to support better scalability.
 
 Demo Link:
-[Demo]
+Demo
 
 Contributing:
 - Feel free to fork this repository and contribute by submitting a pull request.
