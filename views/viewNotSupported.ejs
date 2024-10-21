@@ -5,12 +5,10 @@
     <p>The file you are trying to view cannot be displayed in the browser. You can:</p>
 
     <div style="margin-top: 20px;">
-        <!-- Link to download the file -->
         <a href="<%= request.mainURL %>/DownloadFile/<%= fileName %>" class="btn btn-primary">Download the File</a>
     </div>
 
     <div style="margin-top: 20px;">
-        <!-- Link to open the file in Google Docs or Office Online -->
         <a href="https://docs.google.com/viewer?url=<%= encodeURIComponent(request.mainURL + '/uploads/' + fileName) %>"
            target="_blank" class="btn btn-secondary">View in Google Docs</a>
     </div>
